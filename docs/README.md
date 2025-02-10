@@ -6,8 +6,8 @@ A Go application for handling IP data, providing an API to retrieve and save IP 
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
-   cd IP-API
+   git clone https://github.com/lhiradi/IP-Location-Finder
+   cd IP-Location-Finder
    ```
 
 2. Create a `.env` file in the root directory with the following variables:
