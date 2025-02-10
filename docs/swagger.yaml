@@ -1,0 +1,53 @@
+openapi: 3.0.0
+info:
+  title: IP API
+  description: API for retrieving IP data
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080/api/v1
+paths:
+  /ip:
+    post:
+      summary: Get IP data
+      description: Retrieve IP data by IP address
+      parameters:
+        - name: ip
+          in: query
+          required: true
+          description: The IP address to retrieve data for
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseIP'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+components:
+  schemas:
+    ResponseIP:
+      type: object
+      properties:
+        ip:
+          type: string
+        country_name:
+          type: string
